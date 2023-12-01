@@ -103,6 +103,9 @@ for bit5 in [0, 1]:
                         bit_sequence = "".join(str(x) for x in bits6)
                         plt.annotate(bit_sequence, (sym1.real, sym1.imag + 0.2), ha='center', fontsize=8, color='blue')                        
 plt.plot(sym1.real, sym1.imag)
+plt.title('Constellation to be used')
+plt.xlabel('Real Part')
+plt.ylabel('Imaginary Part')
 plt.grid(True)
 plt.ylim(-11)    
         
@@ -203,11 +206,11 @@ print('size after fft',ofdmdem.shape)
 
 plt.figure(figsize=(15,4))
 plt.plot(abs(ofdmdata), label='Data  signal', color='blue')
-plt.plot(abs(ofdmsend), label='Transmitted', color='black')
+plt.plot(abs(ofdmsend), label='Transmitted signal', color='black')
 
-plt.plot(abs(ofdmrec), label='Received signal',color='green')
-plt.plot(abs(ofdmdem), label='Demodulated ofdm signal',color='red')
-
+plt.plot(abs(ofdmrec), label='Received signal from channel',color='green')
+plt.plot(abs(ofdmdem), label='Demodulated ofdm signal before channel estimation',color='red')
+plt.title(' Signals Comparison')
 
 
 
@@ -302,6 +305,7 @@ plt.show()
 plt.plot(randombits, label='Sequence transmitted',color='red')
 plt.plot(sequence, label='Sequence obtained after demapping',color='blue')
 plt.legend(fontsize=10)
+plt.title('Sequence ')
 plt.xlabel('Time'); plt.ylabel('Value');
 plt.xlim([0,100])
 plt.grid(True);
